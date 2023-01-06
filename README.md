@@ -1,1 +1,1 @@
-<h1> NLW COPA </h1>
+<h1> NLW COPA 👌🏳️‍🌈</h1>
