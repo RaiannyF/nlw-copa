@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Share } from "react-native";
-import { VStack, useToast, HStack } from "native-base";
+import { VStack, useToast, HStack, Avatar } from "native-base";
 import { useRoute } from "@react-navigation/native";
 
 import { Header } from "../components/Header";
@@ -9,6 +9,7 @@ import { PoolCardProps } from "../components/PoolCard";
 import { Guesses } from '../components/Guesses';
 import { PoolHeader } from "../components/PoolHeader";
 import { EmptyMyPoolList } from "../components/EmptyMyPoolList";
+import { Ranking } from "../components/Ranking";
 
 import { api } from "../services/api";
 import { Option } from "../components/Option";
@@ -90,10 +91,16 @@ export function Details() {
                                 onPress={() => setOptionSelected('Ranking do grupo')}
                             />
                         </HStack>
-                        <Guesses
+
+                        {
+                            optionSelected === 'Seus palpites' ?
+                            <Guesses
                             poolId={poolDetails.id} 
                             code={poolDetails.code}
                             />
+                            : <Ranking />
+                        }
+                        
                     </VStack >
 
                     : <EmptyMyPoolList code={poolDetails.code} />
